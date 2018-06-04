@@ -42,7 +42,6 @@ class LoginView(rest_views.APIView):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-        print(serializer.instance.api_token)
         return rest_responses.Response({
             'token': serializer.instance.token
         })
